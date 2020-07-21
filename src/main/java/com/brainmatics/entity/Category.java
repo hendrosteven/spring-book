@@ -1,10 +1,14 @@
 package com.brainmatics.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,7 @@ public class Category {
 	
 	@Column(length = 150, unique = true)
 	private String name;
+	
 
 	public Long getId() {
 		return id;

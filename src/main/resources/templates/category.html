@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Demo Spring Boot</title>
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/webjars/font-awesome/5.13.0/css/all.min.css">
+<link ref="stylesheet" type="text/css" th:src="@{/css/mystyle.css}"
+	href="/css/mystyle.css">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+
+	<div class="container">
+		<br /> <br />
+		<div class="row">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h4>Add Category</h4>
+					</div>
+				</div>
+				<br />
+				<form method="post" th:action="@{/category}" th:object="${categoryForm}">
+					
+					<div class="form-group">
+						<input type="text" class="form-control" th:field="*{categoryName}"
+							aria-describedby="emailHelp" placeholder="Category Name">
+					</div>			
+					<button type="submit" class="btn btn-danger btn-block">Save</button>
+				</form>
+			</div>
+			<div class="col-lg-4"></div>
+		</div>
+		<br />
+	</div>
+
+	<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>
