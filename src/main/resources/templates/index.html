@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Demo Spring Boot</title>
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/webjars/font-awesome/5.13.0/css/all.min.css">
+<link ref="stylesheet" type="text/css" th:src="@{/css/mystyle.css}" href="/css/mystyle.css">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	
+	<div class="container">
+		
+		 <div class="container">
+        <br /><br />
+        <div class="row">
+            <div class="col-xs-1 col-sm-2 col-md-4 col-lg-12">
+                <h4><b style="color:red">BookTag</b> Tag your favorite books!</h4>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-lg-9">
+                <input type="text" class="form-control" id="txtSearch" aria-describedby="txtSearch"
+                    placeholder="Search some books?">
+            </div>
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-danger" id="btnSearch" style="padding-left: 50px;padding-right: 50px;">Search
+                    Books</button>
+            </div>
+        </div>
+        <br />
+        <hr width="100%" />
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>New Books</h4>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: green;">Book title</h5>
+                        <p class="card-text">Some descriptions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: green;">Book title</h5>
+                        <p class="card-text">Some descriptions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: green;">Book title</h5>
+                        <p class="card-text">Some descriptions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: green;">Book title</h5>
+                        <p class="card-text">Some descriptions</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <br />
+        <hr width="100%" />
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Featured Categories</h4>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200.png?text=Fiction" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200.png?text=Comic" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200.png?text=Novel" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200.png?text=Others" class="card-img-top" alt="...">
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+		
+	</div>
+	
+	<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>
