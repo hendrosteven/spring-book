@@ -24,14 +24,13 @@
 					</div>
 				</div>
 				<br />
-				<span th:if="${session.ERROR}!=null">
+				<span th:if="${ERROR}!=null">
 					<div class="alert alert-danger">
 						<strong>Error(s)</strong>
 						<ul>
-							<li th:each="msg : ${session.ERROR.messages}" th:text="${msg}"></li>
+							<li th:each="msg : ${ERROR.messages}" th:text="${msg}"></li>
 						</ul>
 					</div>
-					<span th:remove="all" th:text="${session.remove('ERROR')}"></span>
 				</span>
 				<form method="post" th:action="@{/category}" th:object="${categoryForm}">
 					

@@ -46,7 +46,7 @@ public class CategoryController {
 				msg.getMessages().add(err.getDefaultMessage());
 			}
 			
-			session.setAttribute("ERROR", msg);
+			model.addAttribute("ERROR", msg);
 			return "category";
 		}
 	}
