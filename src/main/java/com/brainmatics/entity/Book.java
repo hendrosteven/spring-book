@@ -1,6 +1,5 @@
 package com.brainmatics.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +22,13 @@ public class Book {
 	@Column(length = 1000, nullable = false)
 	private String descriptions;
 	
-	@ManyToOne(cascade = {CascadeType.MERGE})
+	@Column(length= 150, nullable = false)
+	private String author;
+	
+	@Column(length= 255, nullable = false)
+	private String image;
+	
+	@ManyToOne
 	private Category category;
 
 	public Long getId() {
@@ -57,6 +62,25 @@ public class Book {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	
+	
 	
 	
 }

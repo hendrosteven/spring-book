@@ -1,7 +1,12 @@
 package com.brainmatics.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.brainmatics.entity.Book;
@@ -14,15 +19,23 @@ public class BookService {
 	@Autowired
 	private BookRepo bookRepo;
 	
-	private Book save(Book book) {
+	public Book save(Book book) {
 		return bookRepo.save(book);
 	}
 	
-	private Iterable<Book> findAll(){
+	public Iterable<Book> findAll(){
 		return bookRepo.findAll();
 	}
 	
-//	private Page<Book> findAll(Pageable pageable) {
-//		//return bookRepo.findAll(pageable);
-//	}
+	public List<Book> findAll(int page){
+		Pageable pageable = PageRequest.of(page, 10);
+		return bookRepo.findAll(pageable).getContent();
+	}
+	
+	public List<Book> findAllByTitle(String title, int page) {
+		Pageable pageable = PageRequest.of(page, 10);
+		return bookRepo.findAllByTitle(title, pageable);
+	}
+	
+	
 }

@@ -6,5 +6,5 @@ import com.brainmatics.entity.Category;
 
 public interface CategoryRepo extends CrudRepository<Category, Long>{
 
-	//public Category findByCategoryId(Long id);
+	
 }

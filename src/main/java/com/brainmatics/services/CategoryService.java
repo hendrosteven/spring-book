@@ -1,5 +1,7 @@
 package com.brainmatics.services;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,9 @@ public class CategoryService {
 		return categoryRepo.save(category);
 	}
 	
-//	public Category findById(Long id) {
-//		return categoryRepo.findByCategoryId(id);
-//	}
+	public Optional<Category> findById(Long id) {
+		return categoryRepo.findById(id);
+	}
 	
 	public Iterable<Category> findAll(){
 		return categoryRepo.findAll();

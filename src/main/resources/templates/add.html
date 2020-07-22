@@ -24,23 +24,33 @@
 					</div>
 				</div>
 				<br />
-				<form>
+				<form method="post" th:action="@{/books}" th:object="${bookForm}">
 					<div class="form-group">
 						<input type="text" class="form-control" id="title"
-							aria-describedby="title" placeholder="Book title">
+							th:field="*{title}" aria-describedby="title"
+							placeholder="Book title">
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" id="author"
-							aria-describedby="author" placeholder="Author">
+							th:field="*{author}" aria-describedby="author"
+							placeholder="Author">
 					</div>
 					<div class="form-group">
-						<textarea class="form-control" rows="10"
-							placeholder="Book Descriptions"></textarea>
+						<textarea class="form-control" rows="10" th:field="*{description}" placeholder="Book Descriptions"></textarea>
 					</div>
 					<div class="form-group">
-						<select class="form-group">
-							<option>Category 1</option>
-						</select>
+						<input type="text" class="form-control" id="author"
+							th:field="*{image}" aria-describedby="author"
+							placeholder="Image URL">
+					</div>
+					<div class="form-group">
+						<label for="name">Category</label> 
+						<select class="form-control" th:field="*{categoryId}">
+							<option th:each="category : ${categories}" 
+									th:value="${category.id}"
+									th:text="${category.name}">
+									</option>
+						 </select>
 					</div>
 					<button type="submit" class="btn btn-danger btn-block">Submit</button>
 				</form>
