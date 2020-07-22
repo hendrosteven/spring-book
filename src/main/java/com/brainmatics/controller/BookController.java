@@ -46,15 +46,15 @@ public class BookController {
 			book.setImage(bookForm.getImage());
 			book.setCategory(categoryService.findById(bookForm.getCategoryId()).get());
 			bookService.save(book);
-			return "redirect:/";
+			return "redirect:/books";
 		}else {
 			ErrorMessage msg = new ErrorMessage();
 			for(ObjectError err: bindingResult.getAllErrors()) {
 				msg.getMessages().add(err.getDefaultMessage());
 			}
-			redirectAttribute.addFlashAttribute("bookForm", bookForm);
-			redirectAttribute.addFlashAttribute("ERROR", msg);
-			return "redirect:/books";
+			model.addAttribute("bookForm", bookForm);
+			model.addAttribute("ERROR", msg);
+			return "add";
 		}
 	}
 }
