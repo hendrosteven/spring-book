@@ -14,4 +14,5 @@ public interface BookRepo extends PagingAndSortingRepository<Book, Long> {
 	@Query("SELECT b FROM Book b WHERE b.title LIKE :title")
 	public List<Book> findAllByTitle(@Param("title") String title, Pageable pageable);
 	
+	public Book findByCode(String code);
 }

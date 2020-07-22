@@ -36,20 +36,30 @@ public class BookController {
 	}
 
 	@PostMapping
-	public String saveBook(@Valid BookForm bookForm, 
-			BindingResult bindingResult, Model model, RedirectAttributes redirectAttribute) {
+	public String saveBook(@Valid BookForm bookForm, BindingResult bindingResult, Model model,
+			RedirectAttributes redirectAttribute) {
 		if (!bindingResult.hasErrors()) {
-			Book book = new Book();
-			book.setTitle(bookForm.getTitle());
-			book.setAuthor(bookForm.getAuthor());
-			book.setDescriptions(bookForm.getDescription());
-			book.setImage(bookForm.getImage());
-			book.setCategory(categoryService.findById(bookForm.getCategoryId()).get());
-			bookService.save(book);
-			return "redirect:/books";
-		}else {
+			if (bookService.findByCode(bookForm.getCode()) == null) {
+				Book book = new Book();
+				book.setCode(bookForm.getCode());
+				book.setTitle(bookForm.getTitle());
+				book.setAuthor(bookForm.getAuthor());
+				book.setDescriptions(bookForm.getDescription());
+				book.setImage(bookForm.getImage());
+				book.setCategory(categoryService.findById(bookForm.getCategoryId()).get());
+				bookService.save(book);
+				redirectAttribute.addFlashAttribute("SUCCESS", "Book saved!");
+				return "redirect:/books";
+			}else {
+				ErrorMessage msg = new ErrorMessage();
+				msg.getMessages().add("Code already used");
+				model.addAttribute("bookForm", bookForm);
+				model.addAttribute("ERROR", msg);
+				return "add";
+			}
+		} else {
 			ErrorMessage msg = new ErrorMessage();
-			for(ObjectError err: bindingResult.getAllErrors()) {
+			for (ObjectError err : bindingResult.getAllErrors()) {
 				msg.getMessages().add(err.getDefaultMessage());
 			}
 			model.addAttribute("bookForm", bookForm);

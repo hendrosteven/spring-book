@@ -37,5 +37,8 @@ public class BookService {
 		return bookRepo.findAllByTitle(title, pageable);
 	}
 	
+	public Book findByCode(String code) {
+		return bookRepo.findByCode(code);
+	}
 	
 }

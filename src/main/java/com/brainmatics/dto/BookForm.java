@@ -8,7 +8,7 @@ public class BookForm {
 	
 	@NotEmpty(message="Code is required")
 	@Size(min=3, max=5, message = "Code length must be 3 to 5 characters")
-	@Pattern(regexp = "BT[0-9]", message = "Code must be start with BT")
+	//@Pattern(regexp = "BT[0..9][0..9][0..9]", message = "Code must be start with BT")
 	private String code;
 	
 	@NotEmpty(message = "Title is required")
