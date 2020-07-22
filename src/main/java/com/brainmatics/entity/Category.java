@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="tbl_category")
 public class Category {
@@ -18,6 +19,7 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	
 	@Column(length = 150, unique = true)
 	private String name;
