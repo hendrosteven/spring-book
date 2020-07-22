@@ -1,6 +1,7 @@
 package com.brainmatics.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -39,6 +40,10 @@ public class BookService {
 	
 	public Book findByCode(String code) {
 		return bookRepo.findByCode(code);
+	}
+	
+	public Optional<Book> findById(long id) {
+		return bookRepo.findById(id);
 	}
 	
 }

@@ -46,7 +46,9 @@
                 <div class="card">
                     <img th:src="${book.image}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title" style="color: green;" th:text="${book.title}">Book title</h5>
+                    	<a th:href="@{/books/}+${book.id}">
+                        	<h5 class="card-title" style="color: green;" th:text="${book.title}">Book title</h5>
+                        </a>
                         <p class="card-text" th:text="${book.author}">Some descriptions</p>
                     </div>
                 </div>
