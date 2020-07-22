@@ -62,6 +62,7 @@ public class BookController {
 			for (ObjectError err : bindingResult.getAllErrors()) {
 				msg.getMessages().add(err.getDefaultMessage());
 			}
+			model.addAttribute("categories", categoryService.findAll());
 			model.addAttribute("bookForm", bookForm);
 			model.addAttribute("ERROR", msg);
 			return "add";
