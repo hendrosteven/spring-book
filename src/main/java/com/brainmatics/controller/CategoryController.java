@@ -11,6 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.brainmatics.dto.CategoryForm;
 import com.brainmatics.dto.ErrorMessage;
@@ -45,7 +46,6 @@ public class CategoryController {
 			for(ObjectError err : bindingResult.getAllErrors()) {
 				msg.getMessages().add(err.getDefaultMessage());
 			}
-			
 			model.addAttribute("ERROR", msg);
 			return "category";
 		}
