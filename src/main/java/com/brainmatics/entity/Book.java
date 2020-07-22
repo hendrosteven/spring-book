@@ -16,6 +16,9 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(length = 5, nullable = false, unique = true)
+	private String code;
+	
 	@Column(length = 200, nullable = false)
 	private String title;
 	
@@ -77,6 +80,14 @@ public class Book {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 	

@@ -35,7 +35,8 @@ public class CategoryController {
 	}
 
 	@PostMapping
-	public String saveCategory(@Valid CategoryForm form, BindingResult bindingResult, Model model) {
+	public String saveCategory(@Valid CategoryForm form, 
+			BindingResult bindingResult, Model model) {
 		if (!bindingResult.hasErrors()) {
 			Category category = new Category();
 			category.setName(form.getCategoryName());
